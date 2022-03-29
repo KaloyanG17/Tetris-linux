@@ -1,0 +1,111 @@
+/* NAVBAR STYLES */
+.navbar {
+    background-color: blue;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+}
+li {
+    display: inline;
+}
+.navbar a {
+    color: white;
+}
+
+.tetris {
+    float: right;
+    padding-left: 20px;
+}
+
+.leaderboard {
+    float: right;
+}
+
+/* MAIN STYLES */
+
+.main {
+    margin-top: 20px;
+    height: 87%;
+    width: 99%;
+    position:absolute;
+    background-image: url("tetris.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-size: 100% 100%;
+
+}
+
+.grey_box{
+    font-size: large;
+    text-align: center;
+    margin-top: 350px;
+    margin-left: 520px;
+    margin-right: 520px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #c7c7c7;
+    box-shadow: 5px 5px black;
+}
+
+/* LEADERBOARD STYLES */
+
+table {
+    border-spacing: 2px;
+    width: 385px;
+}
+
+th{
+    background-color: blue;
+    width: 50px;
+    color: white;
+}
+
+table, td, th {
+    border: 2px solid black;
+}
+
+
+/* TETRIS PAGE STYLES */
+.container{
+    display: flex;
+}
+
+.grey_tetris{
+    font-size: large;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #c7c7c7;
+    box-shadow: 5px 5px black;
+}
+
+.tetris-bg {
+    width: 200px;
+    height: 400px;
+    margin-left: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url("tetris-grid-bg.png");
+    background-size: cover;
+}
+
+.tetris-bg div{
+    height: 20px;
+    width: 20px;
+}
+
+
+.shapes {
+    background-color: blue;
+}
+
