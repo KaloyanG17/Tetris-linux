@@ -1,14 +1,17 @@
 <?php include 'connect.php';
 session_start();
 if(isset($_POST['score'])){
-    $score=$_POST['score'];
-    $uname =$_SESSION['userLog'];
+    $score = $_POST['score'];
+    $uname = "Guest";
+    if((isset($_SESSION['userLog']))&& ($_SESSION['userLog'] != '')){ 
+        $uname = $_SESSION['userLog'];
+    }
     $sql = "INSERT INTO Scores (Username, Score) VALUES ('$uname', '$score')";
     $sqlQuerry = mysqli_query($conn,$sql);
     if(!$sqlQuerry){
-        die($score . " Error 2 " . $uname);
+        die("Error in submiting score : " . $score . " for user : " . $uname);
     }else{
-        echo "Inserted";
+        echo "Score submited!";
     }
 }
 ?>
@@ -47,10 +50,14 @@ if(isset($_POST['score'])){
                         $userGot = $row['Username'];
                         $scoreGot = $row['Score'];
                         //Then a its checked if they wanted to show there score on the leaderboard when making an account
-                        $check = "SELECT * FROM Users WHERE UserName = '$userGot'";
-                        $checkDisplay = mysqli_query($conn , $check);
-                        $temp = mysqli_fetch_assoc($checkDisplay);
-                        $display = $temp['Display'];
+                        if($userGot != 'Guest'){
+                            $check = "SELECT * FROM Users WHERE UserName = '$userGot'";
+                            $checkDisplay = mysqli_query($conn , $check);
+                            $temp = mysqli_fetch_assoc($checkDisplay);
+                            $display = $temp['Display'];
+                        } else {
+                            $display = 1;
+                        }
                         // Then the values are placed into the table
                         if($display == 1){
                             echo "<tr><td>" . $userGot . "</td><td> " . $scoreGot ."</td></tr>";

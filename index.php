@@ -4,8 +4,8 @@ session_start();
 
 //When user clicks login button the username and password are passed through and then checked if are correct
 if(isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = mysqli_real_escape_string($conn , $_POST['username']);
+    $password = mysqli_real_escape_string($conn , $_POST['password']);
     $userWrong = 0;
     $passWrong = 0;
     
@@ -21,7 +21,7 @@ if(isset($_POST['login'])) {
             $name_welcome = $row['FirstName'];
             if($password == $pass_check){
                 //Creates a session for the user so they dont have to log in again and sets userWrong and passWrong to false values
-                $_SESSION['userLog'] = $username;
+                $_SESSION['userLog'] = $_POST['username'];
                 $userWrong = 2;
                 $passWrong = 2;
             }else{
@@ -37,11 +37,11 @@ if(isset($_POST['login'])) {
 
 //When user click register button on register.php all the data is passed through 
 if(isset($_POST['reg'])) {
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirmPass = $_POST['confirmPass'];
+    $firstName = mysqli_real_escape_string($conn , $_POST['firstName']);
+    $lastName = mysqli_real_escape_string($conn , $_POST['lastName']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn , $_POST['password']);
+    $confirmPass = mysqli_real_escape_string($conn , $_POST['confirmPass']);
     $display = $_POST['display'];
 
     //SQL querry to check if username exists already
@@ -93,7 +93,7 @@ if(isset($_POST['reg'])) {
         <div class="grey_box">
             <?php 
             // Checks if there is a user logged in and if the session is not a empty name
-            if((isset($_SESSION['userLog'])&& $_SESSION['userLog'] != '')) { 
+            if((isset($_SESSION['userLog']))) { 
                 ?>
                 <div class="logged">
                     <p> Welcome to Tetris </p>

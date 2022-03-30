@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerId
     let score = 0
     let gameOverFlag = false
-    const colors = ['#005B9D','#EE2532','#4EB748','#F79622','#91298C']
+    const colors = ['#005B9D','#EE2532','#FFF934','#4EB748','#F79622','#91298C']
 
     var audio = new Audio('tetris.mp3');
     audio.autoplay = true
@@ -33,10 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
         [3,width+1 ,width+2, width+3]
     ]
     const zShape = [
-        [0,width,width+1,width*2+1],
-        [width+1, width+2,width*2,width*2+1],
-        [0,width,width+1,width*2+1],
-        [width+1, width+2,width*2,width*2+1]
+        [1,2,width+2,width+3],
+        [3,width+3,width+2,width*2+2],
+        [1,2,width+2,width+3],
+        [3,width+3,width+2,width*2+2]
+    ]
+    const sShape = [
+        [2, 3, width+1, width+2],
+        [2, width+2,width+3,width*2+3],
+        [2, 3, width+1, width+2],
+        [2, width+2,width+3,width*2+3]
     ]
     const tShape = [
         [1,width,width+1,width+2],
@@ -57,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [width,width+1,width+2,width+3]
     ]
 
-    const theShapes = [lShape , zShape , tShape , oShape , iShape]
+    const theShapes = [lShape , zShape , sShape, tShape , oShape , iShape]
 
     let currentPosition = 4
     let currentRotation = 0
@@ -119,7 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
         nextRandom = Math.floor(Math.random() * theShapes.length)
         current = theShapes[random][currentRotation]
         currentPosition = 4
-        audio.play()
+        if(audioPlayFlag){
+            audio.play();
+        } else {
+            audio.pause();
+        };
         draw()
         addScore()
         gameOver()
@@ -222,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //game over
     function gameOver() {
         if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-            scoreDisplay.innerHTML = score + "<br>Game Over"
+            scoreDisplay.innerHTML = score + "<p style='color=red !important;'>Game Over</p>";
             clearInterval(timerId)
             gameOverFlag = true;
             var httpr=new XMLHttpRequest();
@@ -230,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
             httpr.setRequestHeader("content-type","application/x-www-form-urlencoded");
             httpr.onreadystatechange=function(){
                 if(httpr.status==200){
-                    document.getElementById("response").innerHTML="Inserted";
+                    document.getElementById("response").innerHTML="Score submited.";
                 }else{
                     console.log("Error");
                 }

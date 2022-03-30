@@ -1,7 +1,5 @@
 <?php include 'connection.php';
 session_start();
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,14 +21,14 @@ session_start();
             <div class="tetris_text">
                 <h2>Score: <span id="score"></span></h2>
                 <span id="response"></span>
+                <br>
                 <?php 
-
                 // Checks if there is a user logged in and if the session is not a empty name
                 echo $score;
                 if((isset($_SESSION['userLog']))&& ($_SESSION['userLog'] != '')){ 
                     echo "You are currently playing as: " . $_SESSION['userLog'];
                 } else {
-                    echo "You are currently not logged in and playing as a guess<br>If you want to save your score please log in.";
+                    echo "You are currently not logged in and playing as Guest.";
                 }
                 ?>
                 <br><br>
