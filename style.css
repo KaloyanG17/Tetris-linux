@@ -30,7 +30,7 @@ li {
 /* MAIN STYLES */
 
 .main {
-    margin-top: 20px;
+    margin-left: 2%;
     height: 87%;
     width: 95%;
     position:absolute;
@@ -46,8 +46,8 @@ li {
     font-size: large;
     text-align: center;
     margin-top: 150px;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 35%;
+    margin-right: 35%;
     padding-top: 5px;
     padding-bottom: 5px;
     background: #c7c7c7;
@@ -59,6 +59,7 @@ li {
 table {
     border-spacing: 2px;
     width: 371px;
+    margin: auto;
 }
 
 th{
@@ -71,6 +72,20 @@ table, td, th {
     border: 2px solid black;
 }
 
+#game {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#start-button {
+    font-size: 20px;
+}
+#mute-button {
+    font-size: 20px;
+}
+
+
 
 /* TETRIS PAGE STYLES */
 .container{
@@ -81,8 +96,8 @@ table, td, th {
     font-size: large;
     text-align: center;
     margin-top: 100px;
-    margin-left: 470px;
-    margin-right: 470px;
+    margin-left: 35%;
+    margin-right: 35%;
     padding-top: 5px;
     padding-bottom: 5px;
     background: #c7c7c7;
@@ -92,7 +107,7 @@ table, td, th {
 .tetris-bg {
     width: 200px;
     height: 400px;
-    margin-left: 100px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     background-image: url("tetris-grid-bg.png");

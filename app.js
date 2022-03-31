@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //Mute and Unmute Button
     muteBtn.addEventListener('click', () => {
         if(audioPlayFlag == true){
-            audio.pause()
-            audioPlayFlag = false
+            audio.pause();
+            audioPlayFlag = false;
         } else {
-            audio.play()
-            audioPlayFlag = true
+            audio.play();
+            audioPlayFlag = true;
         }
     })
 
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         undraw()
         currentRotation ++
         if(currentRotation === current.length) { //if the current rotation gets to 4, make it go back to 0
-        currentRotation = 0
+            currentRotation = 0
         }
         current = theShapes[random][currentRotation]
         checkRotatedPosition()
@@ -202,10 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timerId) {
             clearInterval(timerId)
             timerId = null
+            startBtn.innerHTML = "Resume";
         } else {
             draw()
             timerId = setInterval(moveDown, 1000)
             nextRandom = Math.floor(Math.random()*theShapes.length)
+            startBtn.innerHTML = "Pause";
         }
     })
 
@@ -232,7 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //game over
     function gameOver() {
         if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-            scoreDisplay.innerHTML = score + "<p style='color=red !important;'>Game Over</p>";
+            scoreDisplay.innerHTML = score;
+            
             clearInterval(timerId)
             gameOverFlag = true;
             var httpr=new XMLHttpRequest();
@@ -240,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             httpr.setRequestHeader("content-type","application/x-www-form-urlencoded");
             httpr.onreadystatechange=function(){
                 if(httpr.status==200){
+                    document.getElementById("game").innerHTML="GAME OVER";
                     document.getElementById("response").innerHTML="Score submited.";
                 }else{
                     console.log("Error");

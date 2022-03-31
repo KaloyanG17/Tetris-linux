@@ -20,6 +20,8 @@ session_start();
         <div class="grey_tetris">
             <div class="tetris_text">
                 <h2>Score: <span id="score"></span></h2>
+                <span id="game"></span>
+                <br>
                 <span id="response"></span>
                 <br>
                 <?php 
@@ -32,7 +34,7 @@ session_start();
                 }
                 ?>
                 <br><br>
-                <button id="start-button">Start Game!</button>
+                <button id="start-button">Start Game</button>
                 <button id="mute-button">Mute/Unmute Music</button>
                 <br>
             </div>
