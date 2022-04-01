@@ -17,19 +17,19 @@
         <div class="grey_box">
             <form action="index.php" method="post">
                 <h2>Registration form</h2>
-                <label for="firstName" >First Name:</label>
+                <label for="firstName" >First Name:</label><br>
                 <input type="text" name="firstName" required>
                 <br>
-                <label for="lastName" >Last Name:</label>
+                <label for="lastName" >Last Name:</label><br>
                 <input type="text" name="lastName" required>
                 <br>
-                <label for="username" >Username:</label>
+                <label for="username" >Username:</label><br>
                 <input type="text" name="username" required>
                 <br>
-                <label for="password">Password:</label>
+                <label for="password">Password:</label><br>
                 <input type="password" name="password" placeholder="Password" required>
                 <br>
-                <label for="password">Confirm Password:</label>
+                <!--<label for="password">Confirm Password:</label><br>-->
                 <input type="password" name="confirmPass" placeholder="Confirm Password" required>
                 <br>
                 <p>Display Scores on Leaderboard:</p>

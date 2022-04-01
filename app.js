@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
             httpr.onreadystatechange=function(){
                 if(httpr.status==200){
                     document.getElementById("game").innerHTML="GAME OVER";
-                    document.getElementById("response").innerHTML="Score submited.";
+                    document.getElementById("response").innerHTML="Score submited";
                 }else{
                     console.log("Error");
                 }

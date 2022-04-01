@@ -97,7 +97,7 @@ if(isset($_POST['reg'])) {
                 ?>
                 <div class="logged">
                     <p> Welcome to Tetris </p>
-                    <a href="tetris.php"><button>Click here to play!</button></a>
+                    <a href="tetris.php"><button>Click here to play</button></a>
                     <br><br>
                     <a href = logout.php><button>Log Out</button></a>
                 </div>
@@ -107,23 +107,24 @@ if(isset($_POST['reg'])) {
                 <div class="not_logged">
                     <form action="index.php" method="post">
                         <br>
-                        <h1>Log In for Tetris!</h1>
+                        <h1>Log In for Tetris</h1>
                         <br>
-                        <label for="username" >Username:</label>
+                        <label for="username" >Username:</label><br>
                         <input type="text" placeholder="username" name="username" required>
                         <br>
-                        <label for="password">Password:</label>
+                        <label for="password">Password:</label><br>
                         <input type="password" name="password">
                         <br><br>
                         <input type="submit" name="login" value="Login" required>
-                        <br>
+
                         <?php 
+                        $st = "<p style='color:red;'>";
                         // Uses name and pass checks to output if there is something wrong with the login
                         if ($userWrong == 1){
-                            echo "Wrong Username used!<br>Try again or" .'<a href="register.php"> Register now</a>';
+                            echo $st . "Wrong Username used!</p>Please try again or" .'<a href="register.php"> Register now</a>';
                         };
                         if ($passWrong == 1){
-                            echo "Password is incorrect! Try again please.";
+                            echo $st . "Password is incorrect! </p> Please try again ";
                         };
                         // Else it was sucessful and a session is created line 24 and a welcome messages outputed
                         if (($userWrong == 2 ) && ($passWrong == 2)){

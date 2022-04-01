@@ -28,7 +28,7 @@ session_start();
                 // Checks if there is a user logged in and if the session is not a empty name
                 echo $score;
                 if((isset($_SESSION['userLog']))&& ($_SESSION['userLog'] != '')){ 
-                    echo "You are currently playing as: " . $_SESSION['userLog'];
+                    echo "You are currently playing as: <b>" . $_SESSION['userLog'] . "</b>";
                 } else {
                     echo "You are currently not logged in and playing as Guest.";
                 }
